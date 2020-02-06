@@ -30,7 +30,7 @@ public class ExtraTask extends Thread {
 			} else {
 				runCmdTemp = this.taskinfo.getTool().getRunOnExit();
 			}
-			final String[] runCmd = runCmdTemp.split(" ");
+			final String[] runCmd = Helper.replaceVariables(runCmdTemp, this.taskinfo).split(" ");
 			final String path = Helper.replaceVariables(this.taskinfo.getTool().getPath(), this.taskinfo);
 			final Process process = new ProcessBuilder(runCmd).directory(new File(path)).start();
 
