@@ -1,4 +1,6 @@
-﻿<p align="center">
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.foellix/AQL-System/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.foellix/AQL-System) ![Java 8](https://img.shields.io/badge/java-8-brightgreen.svg)
+---
+<p align="center">
 	<img src="https://FoelliX.github.io/AQL-System/logo.png" width="300px"/>
 </p>
 
@@ -19,12 +21,12 @@ Flows FROM
 	Statement(’getDeviceId()’)
 	->Method(’onCreate(...)’)
 	->Class(’MainActivity’)
-	->App(’/path/to/example.apk’) 
+	->App(’/path/to/example1.apk’) 
 TO 
 	Statement(’sendTextMessage(...)’)
 	->Method(’onCreate(...)’)
 	->Class(’MainActivity’)
-	->App(’/path/to/DirectLeak1.apk’)
+	->App(’/path/to/example2.apk’)
 ?
 ```
 
@@ -90,42 +92,47 @@ The AQL-System or only its internal datastructure (AQL-Lib) can be used by or in
 <dependency>
 	<groupId>de.foellix</groupId>
 	<artifactId>AQL-System</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 </dependency>
 ```
 
 - .jar Import  
 All releases can be found [here](https://github.com/FoelliX/AQL-System/releases/).
 
-**Building from source code**  
+**Building from source code (Terminal)**  
+- Clone repository
+- Navigate to repository ``cd AQL-System``
+- Use Maven to build: ``mvn``
+	- Build is stored inside the project's directory: ``AQL-System/target/build``  
+- Run the build ([Launch parameters](https://github.com/FoelliX/AQL-System/wiki)):
+	```bash
+	cd AQL-System/target/build
+	java -jar AQL-System-XXX.jar
+	```
+
+**Building from source code (Eclipse)**  
 - Import *Maven project* to Eclipse
 - Build pom.xml as *Maven project*
 	- Build is stored inside the project's directory: ``projectDirectory/target/build``  
-	*(``projectDirectory`` refers to your local project directory and consequently has to be replaced by the actual directory and its path)*
-- Run the build ([Launch parameters](https://github.com/FoelliX/AQL-System/wiki)):
-	- Option 1:
-	```bash
-	cd projectDirectory/target/build
-	java -jar AQL-System-XXX.jar
-	```
-	- Option 2: Run ``de.foellix.aql.ui.cli.CommandLineInterface`` as *Java Application*
+- Run ``de.foellix.aql.ui.cli.CommandLineInterface`` as *Java Application* ([Launch parameters](https://github.com/FoelliX/AQL-System/wiki))
 
 
 ## Publications
-- *Do Android Taint Analysis Tools Keep their Promises?* (Felix Pauck, Eric Bodden, Heike Wehrheim)  
-Technical Report: [https://arxiv.org/abs/1804.02903](https://arxiv.org/abs/1804.02903)
+- *Do Android Taint Analysis Tools Keep Their Promises?* (Felix Pauck, Eric Bodden, Heike Wehrheim)  
+ESEC/FSE 2018 [https://dl.acm.org/citation.cfm?id=3236029](https://dl.acm.org/citation.cfm?id=3236029)
+- *Together Strong: Cooperative Android App Analysis* (Felix Pauck, Heike Wehrheim)  
+ESEC/FSE 2019 [https://dl.acm.org/citation.cfm?id=3338915](https://dl.acm.org/citation.cfm?id=3338915)
 
 ## License
 The AQL-System is licensed under the *GNU General Public License v3* (see [LICENSE](https://github.com/FoelliX/AQL-System/blob/master/LICENSE)).
 
 # Contact
-**Felix Pauck**  
+**Felix Pauck** (FoelliX)  
 Paderborn University  
 fpauck@mail.uni-paderborn.de  
-[Homepage](https://cs.uni-paderborn.de/sms/team/group/people/felix-pauck)
-
-<a href="http://www.FoelliX.de" target="_blank"><img src="http://FoelliX.de/style/images/fx.png" width="200px" /></a>
+[http://www.FelixPauck.de](http://www.FelixPauck.de)
 
 # Links
 - The AQL-System is part of BREW: [https://github.com/FoelliX/BREW](https://github.com/FoelliX/BREW)
 - which is used in the ReproDroid toolchain: [https://github.com/FoelliX/ReproDroid](https://github.com/FoelliX/ReproDroid)
+- and in the CoDiDroid framework: [https://github.com/FoelliX/CoDiDroid](https://github.com/FoelliX/CoDiDroid)
